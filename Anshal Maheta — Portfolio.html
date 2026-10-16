@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anshal Maheta — IoT & Embedded Systems</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0b;--fg:#efede6;--ac:#ff4b1f;--mut:#8d8b84;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 15px/1.6 "JetBrains Mono",ui-monospace,Menlo,monospace}
+a{color:inherit}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top,0px)) 4vw 14px;background:var(--bg);border-bottom:2px solid var(--fg);font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+header nav{display:flex;gap:18px}
+header a{text-decoration:none}header a:hover{color:var(--ac)}
+main{position:relative;z-index:2}
+section{padding:12vh 4vw;position:relative}
+.d{font-family:Archivo,Impact,"Arial Black",sans-serif;font-weight:900;text-transform:uppercase;line-height:.84;letter-spacing:-.03em;margin:0}
+.lab{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.lab b{color:var(--ac);font-weight:700}
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:90px}
+#hero h1{font-size:clamp(3.6rem,17vw,17rem)}
+#hero h1 span{display:block}#hero h1 span+span{margin-left:10vw;-webkit-text-stroke:2px var(--fg);color:transparent}
+.tag{display:inline-block;background:var(--ac);color:#0b0b0b;font-weight:700;padding:4px 10px;text-transform:uppercase;font-size:12px;margin-bottom:24px}
+.sub{max-width:520px;margin:28px 0 0 auto;font-size:16px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--fg);border-bottom:2px solid var(--fg);background:var(--bg);position:relative;z-index:2}
+.stats div{padding:22px 4vw 22px 1.2vw;border-right:2px solid var(--fg)}.stats div:first-child{padding-left:4vw}.stats div:last-child{border:0}
+.stats .d{font-size:clamp(2rem,5vw,4.5rem)}
+.stats small{display:block;margin-top:8px;color:var(--mut);text-transform:uppercase;font-size:11px;letter-spacing:.08em}
+#about{display:grid;grid-template-columns:2fr 9fr;gap:4vw}
+#about p{margin:0;font-size:clamp(1.2rem,2.6vw,2.1rem);line-height:1.3;max-width:26em;background:var(--bg);padding-right:2vw}
+#about em{font-style:normal;background:var(--ac);color:#0b0b0b;padding:0 .2em}
+h2{font-size:clamp(3rem,10vw,9rem);margin-bottom:6vh;background:var(--bg);display:inline-block;padding-right:2vw}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:28px}
+.card{background:var(--bg);border:2px solid var(--fg);padding:26px;box-shadow:8px 8px 0 var(--fg);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--ac)}
+.card h3{font-family:Archivo,Impact,sans-serif;font-weight:900;text-transform:uppercase;font-size:clamp(1.5rem,2.8vw,2.4rem);line-height:.95;margin:10px 0 16px;letter-spacing:-.02em}
+.card ul{margin:0;padding-left:18px}.card li{margin-bottom:6px}
+.card .meta{margin-top:18px;padding-top:12px;border-top:2px solid var(--fg);font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut)}
+.c1{grid-column:1/8}.c2{grid-column:8/13;margin-top:70px}.c3{grid-column:2/8}.c4{grid-column:8/13;margin-top:40px}.c5{grid-column:1/6}
+.inv{background:var(--fg);color:var(--bg)}
+.inv .lab{color:#55534d}.inv .lab b{color:#c93200}
+.inv h2{background:var(--fg)}
+.row{display:grid;grid-template-columns:1fr 3fr;gap:4vw;padding:24px 0;border-top:2px solid var(--bg)}
+.row h3{margin:0;font-family:Archivo,Impact,sans-serif;font-weight:900;text-transform:uppercase;font-size:1.5rem;line-height:1}
+.row p{margin:0 0 6px}
+.stack{background:var(--bg)}
+.stack .r{display:grid;grid-template-columns:3fr 9fr;gap:4vw;border-top:2px solid var(--fg);padding:16px 0}
+.stack .r:last-child{border-bottom:2px solid var(--fg)}
+.stack .r b{text-transform:uppercase;font-size:12px;letter-spacing:.08em;color:var(--ac)}
+#contact{min-height:80vh;display:flex;flex-direction:column;justify-content:flex-end}
+#contact a.big{font-family:Archivo,Impact,sans-serif;font-weight:900;font-size:clamp(1.6rem,7.2vw,7rem);line-height:.95;text-decoration:none;letter-spacing:-.03em;background:var(--bg);display:inline-block;word-break:break-all}
+#contact a.big:hover{color:var(--ac)}
+.links{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px;background:var(--bg);padding:6px 0}
+footer{padding:20px 4vw;border-top:2px solid var(--fg);font-size:12px;color:var(--mut);background:var(--bg);position:relative;z-index:2;text-transform:uppercase}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .5s,transform .5s}.rv.on{opacity:1;transform:none}
+@media(max-width:800px){
+header nav a:nth-child(n+3){display:none}
+#about,.row,.stack .r{grid-template-columns:1fr;gap:10px}
+.grid{display:block}.card{margin:0 0 32px!important}
+.stats{grid-template-columns:1fr 1fr}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:2px solid var(--fg)}
+.sub{margin-left:0}
+}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header><a href="#hero"><b>A.MAHETA</b></a><nav><a href="#work">Work</a><a href="#record">Record</a><a href="#stack">Stack</a><a href="#contact">Contact</a></nav></header>
+<main>
+<section id="hero">
+ <div class="tag">Seeking robotics internship</div>
+ <h1 class="d"><span>Anshal</span><span>Maheta</span></h1>
+ <p class="sub">IoT and embedded systems developer. I wire sensors to microcontrollers, make the logic hold up on real hardware, and ship the web layer on top. Bhavnagar, India.</p>
+</section>
+<div class="stats">
+ <div><span class="d">&lt;1s</span><small>Alert to dashboard</small></div>
+ <div><span class="d">02</span><small>Conference papers</small></div>
+ <div><span class="d">4+</span><small>Client websites</small></div>
+ <div><span class="d">01</span><small>Best Intern Award</small></div>
+</div>
+<section id="about">
+ <div class="lab"><b>01</b> / About</div>
+ <p class="rv">Computer Engineering diploma student. I use AI tools to move fast, then <em>test, debug and own</em> every line on the bench. Arduino, ESP32, Raspberry Pi, RF, and a network-security side project that became a paper.</p>
+</section>
+<section id="work">
+ <div class="lab"><b>02</b> / Selected work</div>
+ <h2 class="d">Work</h2>
+ <div class="grid">
+  <article class="card c1 rv"><div class="lab">2024–2025 / IoT + automation</div><h3>Smart Agriculture System</h3>
+   <ul><li>Sensor network for real-time crop and environment data.</li><li>Threshold-based automation for water and nutrient use.</li><li>Co-authored paper, presented at an international conference.</li></ul><div class="meta">Sensors / Automation / Research</div></article>
+  <article class="card c2 rv"><div class="lab">Embedded / RF</div><h3>ESP32 + Dual NRF24L01</h3>
+   <ul><li>2.4 GHz links over SPI, with Bluetooth coexistence.</li><li>Frequency-hopping and interference study in a controlled, authorized setting.</li></ul><div class="meta">ESP32 / SPI / 2.4 GHz</div></article>
+  <article class="card c3 rv"><div class="lab">2024–2025 / Security</div><h3>NAPVF — Alert Processing &amp; Visualization</h3>
+   <ul><li>Python engine reading Suricata eve.json in real time.</li><li>Severity classification, event enrichment, live dashboard.</li><li>Validated with simulated Nmap SYN scans. Published as a conference paper.</li></ul><div class="meta">Python / Suricata IDS / Dashboards</div></article>
+  <article class="card c4 rv"><div class="lab">2026 / Prototype</div><h3>DIY IoT Smart Glasses</h3>
+   <ul><li>Low-cost wearable: Pi/ESP32, camera, OLED, sensors.</li><li>Technical docs and innovation-grant pitch for an open-source build.</li></ul><div class="meta">Raspberry Pi / ESP32 / Wearables</div></article>
+  <article class="card c5 rv"><div class="lab">Professional</div><h3>Web Delivery, 4+ Sites</h3>
+   <ul><li>Responsive interfaces wired to backend logic and databases.</li></ul><div class="meta">HTML / CSS / JS / PHP / Laravel</div></article>
+ </div>
+</section>
+<section id="record" class="inv">
+ <div class="lab"><b>03</b> / Record</div>
+ <h2 class="d">Record</h2>
+ <div class="row rv"><h3>IoT Development Intern<br><span style="font-size:.8rem;font-weight:400;font-family:'JetBrains Mono',monospace">LNX Cloud Technology, Rajkot / Jun 2025</span></h3>
+  <div><p>Sensor integration, device communication and cloud connectivity on real embedded systems.</p><p>Helped design and test connected hardware; learned IoT architecture and data pipelines first-hand.</p><p><strong>Best Intern Award</strong> for performance and initiative.</p></div></div>
+ <div class="row rv"><h3>Recognition</h3>
+  <div><p>Best Research Award, institutional level</p><p>Best in Java Development</p><p>Co-author: “A Custom Network Alert Processing and Visualization Framework Built on Suricata IDS”</p><p>Co-author: Smart Agriculture research paper</p></div></div>
+ <div class="row rv"><h3>Education</h3>
+  <div><p>Diploma in Computer Engineering, Gyanmanjari Innovative University, Bhavnagar. Expected Jun 2027. SGPA 7.5.</p><p>Data Structures, OOP, Networks, DBMS, IoT, Operating Systems.</p></div></div>
+</section>
+<section id="stack">
+ <div class="lab"><b>04</b> / Stack</div>
+ <h2 class="d">Stack</h2>
+ <div class="stack">
+  <div class="r rv"><b>Boards</b><span>Arduino Uno, Arduino Nano, ESP32, Raspberry Pi</span></div>
+  <div class="r rv"><b>Wireless</b><span>NRF24L01, SPI, 2.4 GHz RF, Wi-Fi, Bluetooth</span></div>
+  <div class="r rv"><b>Embedded</b><span>Sensor integration, device comms, cloud connectivity, automation logic, prototyping</span></div>
+  <div class="r rv"><b>Languages</b><span>Arduino C/C++, Python, Java, C++ basics</span></div>
+  <div class="r rv"><b>Web</b><span>HTML, CSS, JavaScript, PHP/Laravel, MySQL, SQLite</span></div>
+  <div class="r rv"><b>Security</b><span>Suricata IDS, traffic analysis, threat monitoring</span></div>
+  <div class="r rv"><b>Tools</b><span>Git, Linux, Postman, AI-assisted dev with hardware validation</span></div>
+ </div>
+</section>
+<section id="contact">
+ <div class="lab"><b>05</b> / Contact</div>
+ <p style="background:var(--bg);display:inline-block;margin:10px 0 24px">Looking for a robotics internship. Send me something to build.</p>
+ <div><a class="big" href="mailto:anshalmaheta@gmail.com">anshalmaheta@gmail.com</a></div>
+ <div class="links"><a href="tel:+918140719908">+91 81407 19908</a><a href="https://linkedin.com/in/anshal-maheta-959632318">LinkedIn</a></div>
+</section>
+</main>
+<footer>Anshal Maheta / Bhavnagar, Gujarat / Built by hand</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+ var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.15});
+ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+ if(!window.THREE)return;
+ var cv=document.getElementById('gl'),r=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true});
+ r.setPixelRatio(Math.min(devicePixelRatio,2));
+ var s=new THREE.Scene(),cam=new THREE.PerspectiveCamera(40,1,.1,50);cam.position.z=7;
+ var g=new THREE.Group();s.add(g);
+ var outer=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(2,1)),new THREE.LineBasicMaterial({color:0xefede6}));
+ var inner=new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.OctahedronGeometry(.9,0)),new THREE.LineBasicMaterial({color:0xff4b1f}));
+ g.add(outer);g.add(inner);
+ var mx=0,my=0,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+ function size(){r.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix();outer.material.opacity=inner.material.opacity=1;outer.material.transparent=inner.material.transparent=innerWidth<800;if(innerWidth<800){outer.material.opacity=.35}}
+ addEventListener('resize',size);size();
+ var t=0;
+ function loop(){
+  t+=rm?0:.008;
+  var sc=scrollY/innerHeight,wide=innerWidth>800,tx=wide?Math.cos(sc*1.1)*2.6:0,ty=Math.sin(sc*.8)*.5;
+  g.position.x+=(tx-g.position.x)*.06;g.position.y+=(ty-g.position.y)*.06;
+  var k=1+Math.sin(sc*1.4)*.12;g.scale.setScalar(k);
+  g.rotation.y=t+sc*.9+mx*.8;g.rotation.x=t*.6+sc*.5+my*.6;
+  inner.rotation.y=-t*2.2;inner.rotation.z=t*1.4;
+  r.render(s,cam);requestAnimationFrame(loop)}
+ loop();
+})();
+</script>
+</body>
+</html>
